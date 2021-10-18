@@ -19,7 +19,8 @@ class MyApp extends ConsumerWidget {
       home: Homepage(),
       theme: ThemeModel().lightTheme,
       darkTheme: ThemeModel().darkTheme,
-      themeMode: watch(themeProvider) ? ThemeMode.dark : ThemeMode.light,
+      themeMode:
+          watch(themeStateProvider).state ? ThemeMode.dark : ThemeMode.light,
     );
   }
 }

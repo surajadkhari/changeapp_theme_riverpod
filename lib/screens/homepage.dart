@@ -19,7 +19,9 @@ class _HomepageState extends State<Homepage> {
       ),
       body: Center(
         child: Consumer(builder: (context, watch, child) {
-          bool currentvalue = watch(themeProvider);
+          // bool currentvalue = watch(themeProvider);
+
+          bool curretValueState = watch(themeStateProvider).state;
           return Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -33,9 +35,10 @@ class _HomepageState extends State<Homepage> {
                 children: [
                   Text("Light Mode"),
                   Switch(
-                      value: (currentvalue),
+                      value: (curretValueState),
                       onChanged: (val) =>
-                          context.read(themeProvider.notifier).changeTheme()),
+                          // context.read(themeProvider.notifier).changeTheme()),
+                          context.read(themeStateProvider).state = val),
                   Text("Dark Mode"),
                 ],
               )
